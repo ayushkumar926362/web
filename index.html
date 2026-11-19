@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f4c36">
+<title>Kumar Abhisek – Fumigation Certificate Portal</title>
+<style>
+:root{--bg:#f4f6f3;--sf:#fff;--tx:#14221a;--mu:#5a6b61;--ac:#0f4c36;--ac2:#e6f0ea;--am:#d99a1c;--bd:#dbe3dd;--er:#b3261e;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1712;--sf:#16231b;--tx:#e8f0ea;--mu:#9bada1;--ac:#4fbf8a;--ac2:#1c3125;--am:#f0b84a;--bd:#2a3c30;--er:#ff8a80;color-scheme:dark}}
+*{box-sizing:border-box}html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Segoe UI",Roboto,"Noto Sans Devanagari",Arial,sans-serif}
+h1,h2,h3{margin:0;line-height:1.25}
+header{position:sticky;top:0;z-index:20;background:#0f4c36;color:#fff;padding:10px 18px;padding-top:calc(10px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;margin-right:auto}
+.logo i{width:34px;height:34px;border-radius:8px;background:var(--am);display:grid;place-items:center;font-style:normal;color:#0f4c36;font-weight:800}
+nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+nav a{color:#fff;text-decoration:none;padding:6px 10px;font-size:14px}
+button{font:inherit;cursor:pointer;border:1px solid var(--ac);background:var(--ac);color:#fff;padding:9px 16px;border-radius:8px;font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#06150d}}
+button.ghost{background:transparent;color:var(--ac)}
+button.am{background:var(--am);border-color:var(--am);color:#2b1d00}
+header button{background:transparent;border-color:rgba(255,255,255,.6);color:#fff;padding:7px 14px}
+header button.am{background:var(--am);border-color:var(--am);color:#2b1d00}
+button:disabled{opacity:.5;cursor:default}
+:focus-visible{outline:3px solid var(--am);outline-offset:2px}
+.hero{background:linear-gradient(120deg,#0f4c36,#17694b);color:#fff;padding:26px 18px}
+.hero div{max-width:1120px;margin:auto}
+.hero h1{font-size:26px;max-width:620px}.hero p{margin:8px 0 0;max-width:560px;opacity:.9}
+main{max-width:1120px;margin:0 auto;padding:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-size:24px;color:var(--ac)}.stat span{color:var(--mu);font-size:13px}
+.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:18px;margin-bottom:16px}
+.card h2{font-size:18px;margin-bottom:12px}
+label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
+input,select{width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+input.bad{border-color:var(--er)}
+.r3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.r2{grid-template-columns:1fr}}
+.res{background:var(--ac2);border-radius:8px;padding:12px;margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.res b{display:block;font-size:18px;color:var(--ac)}.res span{font-size:12px;color:var(--mu)}
+.note{font-size:12px;color:var(--mu);margin:10px 0 0}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.plan{position:relative;border:1px solid var(--bd);border-radius:10px;padding:16px;background:var(--sf)}
+.plan.hot{border:2px solid var(--am)}
+.plan .tag{position:absolute;top:-11px;right:12px;background:var(--am);color:#2b1d00;font-size:12px;font-weight:700;padding:2px 10px;border-radius:10px}
+.plan .p{font-size:30px;font-weight:800;color:var(--ac)}.plan .u{color:var(--mu);font-size:13px}
+.plan ul{padding-left:18px;margin:10px 0;color:var(--mu);font-size:13px}
+.plan button{width:100%}
+.wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--bd)}th{color:var(--mu);font-weight:600;font-size:13px}
+.badge{display:inline-block;background:var(--ac2);color:var(--ac);padding:2px 10px;border-radius:12px;font-weight:600;font-size:13px}
+.empty{text-align:center;color:var(--mu);padding:22px}
+.lock{background:var(--ac2);border-radius:8px;padding:14px;text-align:center}
+dialog{border:1px solid var(--bd);border-radius:12px;background:var(--sf);color:var(--tx);width:92%;max-width:430px;padding:20px}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog h2{margin-bottom:6px}.acts{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.err{color:var(--er);font-size:13px;min-height:18px;margin-top:6px}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.pay label{border:1px solid var(--bd);border-radius:8px;padding:10px;margin:0;color:var(--tx);cursor:pointer;display:flex;gap:8px;align-items:center}
+.pay input{width:auto}
+footer{border-top:1px solid var(--bd);margin-top:10px;padding:20px 18px;text-align:center;color:var(--mu);font-size:13px}
+footer a{color:var(--ac);margin:0 8px;cursor:pointer;text-decoration:underline}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:#14221a;color:#fff;padding:10px 18px;border-radius:8px;display:none;z-index:99;max-width:90%}
+#cert{display:none}
+.cb{border:5px double #0f4c36;padding:26px;background:#fff;color:#000;max-width:780px;margin:auto;position:relative}
+.cb h2{text-align:center;font-size:24px;color:#0f4c36;letter-spacing:1px}
+.cb .sub{text-align:center;margin:4px 0 16px;font-size:14px}
+.cb table{min-width:0}.cb td{border:1px solid #9aa;color:#000;padding:7px 10px}.cb td:first-child{background:#eef4f0;width:38%;font-weight:600}
+.cb .sg{display:flex;justify-content:space-between;align-items:flex-end;margin-top:44px;font-size:13px}
+.vid{font-family:monospace;font-size:12px;border:1px dashed #666;padding:6px 8px}
+@media print{body>*:not(#cert){display:none!important}#cert{display:block!important;position:static!important;background:#fff!important;padding:0!important}.noprint{display:none!important}:root{padding:0}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.tabs button.on{background:var(--ac);color:var(--bg)}
+.hid{display:none}.prog{height:10px;background:var(--ac2);border-radius:6px;overflow:hidden;margin-top:6px}.prog i{display:block;height:100%;width:0;background:var(--ac);transition:width .2s}
+textarea{width:100%;padding:10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+dialog{max-height:92vh;overflow:auto}dialog.wide{max-width:640px}
+.cv{background:#fff;color:#000;max-width:780px;margin:auto;padding:14px;font-size:13px}.cv .lh{display:flex;gap:12px;align-items:center;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px}.cv .lh img{width:70px;height:70px;object-fit:contain}.cv h3{margin:0 0 2px;font-size:22px;color:#0f4c36}.cv .lh div{font-size:11px;line-height:1.35}.cv .b{font-weight:700}
+.ct{width:100%;border-collapse:collapse;min-width:0}.ct td{border:1px solid #000;padding:4px 7px;color:#000;vertical-align:middle}.ct td:first-child{width:46%}.ct .ti{text-align:center;font-size:22px}.ct .ti small{display:block;font-size:11px;font-weight:700}.ct .ce{text-align:center}.ct .pa{font-size:12px}.ct .sm{font-size:11px;display:block;text-align:center;margin-top:4px}.ct .bd{text-align:center;font-weight:700;background:#f2f2f2}.ct .sg{position:relative;min-height:90px;vertical-align:bottom}.ct .sg img{position:absolute;left:30px;top:4px;width:80px;height:80px;object-fit:contain}.vf{font-family:monospace;font-size:11px;margin:8px 0 0;color:#000}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><i>KA</i> Kumar Abhisek</div>
+  <nav>
+    <a href="#calc">Calculators</a><a href="#bulk">Bulk</a><a href="#verify">Verify</a><a href="#plans">Plans</a><a href="#certs">Certificates</a>
+    <button id="bLogin" onclick="openD('dLogin')">Login</button>
+    <button id="bReg" class="am" onclick="openReg()">Register</button>
+    <button id="bBuy" onclick="go('plans')">Buy subscription</button>
+    <button id="bOut" onclick="logout()" style="display:none">Logout</button>
+  </nav>
+</header>
+<div class="hero"><div>
+  <h1>Fumigation certificates in minutes</h1>
+  <p>Enter the consignment details, and your company letterhead, registration and signatory are added automatically. Download or print. ₹99 for 10 certificates.</p>
+</div></div>
+
+<main>
+<div class="stats">
+  <div class="stat"><b id="sCred">0</b><span>Credits left</span></div>
+  <div class="stat"><b id="sCert">0</b><span>Certificates created</span></div>
+  <div class="stat"><b id="sSpent">₹0</b><span>Total spent</span></div>
+</div>
+
+<div class="grid">
+  <section class="card" id="calc">
+    <h2>Calculators</h2>
+    <div class="tabs"><button id="tb1" class="on" onclick="tab(1)">Space dose</button><button id="tb2" class="ghost" onclick="tab(2)">Temperature (MB)</button><button id="tb3" class="ghost" onclick="tab(3)">Tonnage (Phosphine)</button></div>
+    <div id="tp1">
+      <div class="r3">
+        <div><label for="L">Length (m)</label><input id="L" type="number" min="0" step="any" value="10"></div>
+        <div><label for="W">Width (m)</label><input id="W" type="number" min="0" step="any" value="5"></div>
+        <div><label for="H">Height (m)</label><input id="H" type="number" min="0" step="any" value="3"></div>
+      </div>
+      <div class="r2">
+        <div><label for="F">Fumigant</label><select id="F"><option value="mb">Methyl Bromide (48 g/m³)</option><option value="alp">Aluminium Phosphide (3 tablets/m³)</option></select></div>
+        <div><label for="E">Exposure (hours)</label><input id="E" type="number" min="1" value="24"></div>
+      </div>
+      <div class="res"><div><b id="rV">0</b><span>Volume m³</span></div><div><b id="rD">0</b><span>Dose</span></div><div><b id="rE">0</b><span>Hours</span></div></div>
+    </div>
+    <div id="tp2" class="hid">
+      <div class="r2"><div><label for="tT">Temperature (°C)</label><input id="tT" type="number" step="any" value="25"></div><div><label for="tV">Volume (m³)</label><input id="tV" type="number" min="0" step="any" value="150"></div></div>
+      <div class="res"><div><b id="t1">0</b><span>Dose rate</span></div><div><b id="t2">0</b><span>Total Methyl Bromide</span></div><div><b id="t3">0</b><span>Minimum exposure</span></div></div>
+      <p class="note">Schedule: 48 g/m³ at 21°C+, 56 g/m³ at 16°C+, 64 g/m³ at 10°C+.</p>
+    </div>
+    <div id="tp3" class="hid">
+      <div class="r2"><div><label for="pT">Cargo (tonnes)</label><input id="pT" type="number" min="0" step="any" value="50"></div><div><label for="pR">Tablets per tonne</label><input id="pR" type="number" min="0" step="any" value="3"></div></div>
+      <div class="res"><div><b id="p1">0</b><span>Total tablets</span></div><div><b id="p2">0</b><span>Weight (3 g tablets)</span></div><div><b id="p3">0</b><span>Dose rate</span></div></div>
+    </div>
+    <p class="note">Dose rates are indicative only. Always confirm the final dose against your licence and the importing country's rules.</p>
+  </section>
+
+  <section class="card" id="acct">
+    <h2>Company Details</h2>
+    <div id="acctBody"></div>
+  </section>
+</div>
+
+<section class="card" id="verify">
+  <h2>Verify a certificate</h2>
+  <p class="note" style="margin:0 0 6px">Enter the Verify ID printed on the certificate. No login needed.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="vId" placeholder="e.g. 3F9A1C27B0" style="flex:1;min-width:180px" autocapitalize="characters"><button onclick="verifyCert()">Check</button></div>
+  <div id="vOut" aria-live="polite"></div>
+</section>
+
+<section class="card" id="plans">
+  <h2>Subscription Plans</h2>
+  <div class="plans" id="planList"></div>
+</section>
+
+<section class="card" id="make">
+  <h2>Create Fumigation Certificate</h2>
+  <div id="makeBody"></div>
+</section>
+
+<section class="card" id="bulk">
+  <h2>Bulk Certificate Generator</h2>
+  <p class="note" style="margin-top:0">Upload a CSV file (for Excel, use "Save as CSV"). Each row = 1 certificate = 1 credit, up to 5000 per upload. All PDFs download in one ZIP. Company details and the issue date are added automatically.</p>
+  <div class="acts" style="margin-top:8px;align-items:center"><button class="ghost" onclick="tmpl()">Download CSV template</button><input id="bFile" type="file" accept=".csv,text/csv" onchange="loadCSV(this.files[0])" style="flex:1;min-width:200px"></div>
+  <p id="bInfo" class="note" aria-live="polite"></p>
+  <div class="prog"><i id="bBar"></i></div>
+  <div class="acts"><button id="bGo" onclick="runBulk()" disabled>Generate + download ZIP</button></div>
+</section>
+
+<section class="card" id="certs">
+  <h2>My certificates <span class="badge" id="cnt">0</span></h2>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><input id="hq" placeholder="Search: certificate no, importer, cargo, container..." style="flex:1;min-width:200px" oninput="hSearch()"><button class="ghost" onclick="exportCSV()">Export CSV</button></div>
+  <div class="wrap"><table><thead><tr><th>Certificate No.</th><th>Issued</th><th>Importer</th><th>Cargo</th><th></th></tr></thead><tbody id="hist"></tbody></table></div>
+  <div class="acts" style="align-items:center"><button class="ghost" id="hPrev" onclick="hPage(-1)">← Previous</button><span id="hInfo" class="note" style="margin:0"></span><button class="ghost" id="hNext" onclick="hPage(1)">Next →</button></div>
+</section>
+</main>
+
+<footer>
+  <div><a onclick="legal('Privacy Policy')">Privacy Policy</a><a onclick="legal('Terms &amp; Conditions')">Terms</a><a onclick="legal('Refund Policy')">Refund Policy</a><a onclick="legal('Contact Us')">Contact</a></div>
+  <p>© 2026 Kumar Abhisek. All rights reserved.</p>
+</footer>
+
+<dialog id="dReg" class="wide"><h2 id="regT">Register your company</h2>
+  <p class="note" style="margin-top:0">These details are added by default to every certificate you create.</p>
+  <div id="authF"><div class="r2"><div><label for="rEmail">Email *</label><input id="rEmail" type="email" autocomplete="email"></div><div><label for="rPass">Password * (min 6 characters)</label><input id="rPass" type="password" autocomplete="new-password"></div></div></div>
+  <label for="rName">Company name *</label><input id="rName">
+  <label for="rAddr">Registered / head office address *</label><input id="rAddr">
+  <label for="rOff">Other office addresses (one per line, optional)</label><textarea id="rOff" rows="2"></textarea>
+  <div class="r2">
+    <div><label for="rMob">Mobile * (10 digits)</label><input id="rMob" inputmode="tel" maxlength="10"></div>
+    <div><label for="rPre">Certificate number prefix * (e.g. HFC/H)</label><input id="rPre" autocapitalize="characters"></div>
+    <div><label for="rDppqs">DPPQS Regd. No. *</label><input id="rDppqs"></div>
+    <div><label for="rDd">DPPQS Regd. date *</label><input id="rDd" type="date"></div>
+    <div><label for="rOp">Accredited operator name *</label><input id="rOp"></div>
+    <div><label for="rAcc">Accreditation No. *</label><input id="rAcc"></div>
+    <div><label for="rLogo">Company logo (optional)</label><input id="rLogo" type="file" accept="image/*" onchange="pickImg(this,'logo')"></div>
+    <div><label for="rStamp">Seal and signature image (optional)</label><input id="rStamp" type="file" accept="image/*" onchange="pickImg(this,'stamp')"></div>
+  </div>
+  <div class="err" id="rErr"></div>
+  <div class="acts"><button id="rGo" onclick="regOrSave()">Register</button><button class="ghost" onclick="closeD('dReg')">Close</button></div>
+</dialog>
+<dialog id="dLogin"><h2>Login</h2>
+  <label for="lEmail">Email</label><input id="lEmail" type="email" autocomplete="email">
+  <label for="lPass">Password</label><input id="lPass" type="password" autocomplete="current-password">
+  <div class="err" id="lErr"></div>
+  <p class="note"><a href="#" onclick="closeD('dLogin');openD('dReset');return false" style="color:var(--ac)">Forgot password?</a></p>
+  <div class="acts"><button onclick="login()">Log in</button><button class="ghost" onclick="closeD('dLogin')">Close</button></div>
+</dialog>
+<dialog id="dReset"><h2>Reset password</h2>
+  <p class="note" style="margin-top:0">Enter the recovery code you received when you registered.</p>
+  <label for="pEmail">Email</label><input id="pEmail" type="email" autocomplete="email">
+  <label for="pCode">Recovery code</label><input id="pCode" placeholder="XXXX-XXXX-XXXX-XXXX" autocapitalize="characters">
+  <label for="pPass">New password (min 6 characters)</label><input id="pPass" type="password" autocomplete="new-password">
+  <div class="err" id="pErr"></div>
+  <div class="acts"><button onclick="resetPw()">Change password</button><button class="ghost" onclick="closeD('dReset')">Close</button></div>
+</dialog>
+<dialog id="dCode"><h2>Your recovery code</h2>
+  <p style="margin:6px 0">This code is shown <b>only once</b>. Copy it or take a photo and keep it safe. You will need it if you forget your password.</p>
+  <div class="vid" id="codeV" style="font-size:18px;padding:12px;text-align:center;background:var(--ac2);border-color:var(--ac)"></div>
+  <div class="acts"><button onclick="copyCode()">Copy</button><button class="ghost" onclick="closeD('dCode')">I have saved it</button></div>
+</dialog>
+<dialog id="dLegal"><h2 id="lgT"></h2><p id="lgB" style="color:var(--mu)"></p><div class="acts"><button onclick="closeD('dLegal')">Close</button></div></dialog>
+<div class="toast" id="toast"></div>
+<div id="cert"></div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const PLANS=[
+ {n:"Basic",p:99,c:10,f:["₹9.9 per certificate","PDF download","Print option"]},
+ {n:"Standard",p:199,c:25,hot:1,f:["₹7.96 per certificate","PDF download","Print option"]},
+ {n:"Pro",p:399,c:60,f:["₹6.65 per certificate","PDF download","Print option"]},
+ {n:"Business",p:799,c:150,f:["₹5.33 per certificate","PDF download","Print option"]}];
+const FUM={mb:[48,"g"],alp:[3,"tablet"]};
+const RECOG="Recognised by Directorate of Plant Protection Quarantine & Storage, Govt. of India";
+const VALID="The Certificate is valid for the consignments shipped within 21 days from the date of completion of fumigation";
+const intro=c=>`This is to certify that the goods described below were treated in accordance with the fumigation treatment requirements of importing country (${c.country}) and declared that the consignment has been verified free of impervious surfaces/layers such as plastic wrapping or laminated plastic films, lacquered or painted surfaces, aluminium foil, tarred or waxed paper etc. that may adversely affect the penetration of the fumigant, prior to fumigation`;
+let S={token:null,user:null,credits:0,spent:0,total:0,certs:[],page:0,q:"",hTotal:0},BULK=[],busy=false,MODE="reg",IMG={},formFor=null;
+try{S.token=localStorage.getItem("kaTok")}catch(e){}
+const $=i=>document.getElementById(i);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tick=()=>new Promise(r=>setTimeout(r));
+const dmy=s=>s?s.split("-").reverse().join("/"):"-";
+const txt=v=>Array.isArray(v)?v.filter(Boolean).join("\n")||"-":(v||"-");
+const today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+function toast(t){const m=$("toast");m.textContent=t;m.style.display="block";clearTimeout(m._t);m._t=setTimeout(()=>m.style.display="none",3200)}
+function openD(i){$(i).showModal()}function closeD(i){$(i).close()}
+function go(i){$(i).scrollIntoView({behavior:"smooth"})}
+function save(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
+async function api(p,b){
+ const r=await fetch("/api/"+p,{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+(S.token||"")},body:JSON.stringify(b||{})});
+ const d=await r.json().catch(()=>({}));
+ if(!r.ok){if(r.status===401&&p!=="auth")setTok(null);throw new Error(d.error||"No response from server")}
+ return d}
+function setTok(t){S.token=t;try{t?localStorage.setItem("kaTok",t):localStorage.removeItem("kaTok")}catch(e){}
+ if(!t)S={token:null,user:null,credits:0,spent:0,total:0,certs:[],page:0,q:"",hTotal:0}}
+async function refresh(){
+ if(S.token){try{const d=await api("status");S.user=d.user;S.credits=d.credits;S.spent=d.spent;S.total=d.total;await loadHist(true)}catch(e){}}
+ render()}
+async function loadHist(quiet){
+ try{const d=await api("history",{page:S.page,q:S.q});S.certs=d.items;S.hTotal=d.total}catch(e){if(!quiet)toast(e.message)}
+ if(!quiet)render()}
+let _h;function hSearch(){clearTimeout(_h);_h=setTimeout(()=>{S.q=$("hq").value;S.page=0;loadHist()},350)}
+function hPage(n){S.page=Math.max(0,S.page+n);loadHist()}
+// ---------- Register / profile
+function openReg(){MODE="reg";IMG={};["rEmail","rPass","rName","rAddr","rOff","rMob","rPre","rDppqs","rDd","rOp","rAcc"].forEach(i=>$(i).value="");
+ $("authF").style.display="";$("regT").textContent="Register your company";$("rGo").textContent="Register";$("rErr").textContent="";openD("dReg")}
+function openProfile(){const u=S.user;MODE="prof";IMG={};
+ [["rName","name"],["rAddr","addr"],["rOff","offices"],["rMob","mob"],["rPre","prefix"],["rDppqs","dppqs"],["rDd","dppqsDate"],["rOp","opName"],["rAcc","opAcc"]].forEach(([i,k])=>$(i).value=u[k]||"");
+ $("authF").style.display="none";$("regT").textContent="Edit company profile";$("rGo").textContent="Save profile";$("rErr").textContent="";openD("dReg")}
+function pickImg(inp,k){const f=inp.files[0];if(!f)return;const im=new Image(),url=URL.createObjectURL(f);
+ im.onload=()=>{const s=Math.min(1,(k==="logo"?300:240)/im.width),c=document.createElement("canvas");c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);
+  const x=c.getContext("2d");if(k==="logo"){x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height)}x.drawImage(im,0,0,c.width,c.height);
+  const d=c.toDataURL(k==="logo"?"image/jpeg":"image/png",.85);URL.revokeObjectURL(url);
+  if(d.length>190000){inp.value="";return toast("Image is too large. Please use a smaller image")}
+  IMG[k]=d;toast("Image added")};
+ im.onerror=()=>toast("Could not read this image");im.src=url}
+async function regOrSave(){
+ const b={name:$("rName").value,addr:$("rAddr").value,offices:$("rOff").value,mob:$("rMob").value.trim(),dppqs:$("rDppqs").value,dppqsDate:$("rDd").value,opName:$("rOp").value,opAcc:$("rAcc").value,prefix:$("rPre").value};
+ if(IMG.logo!==undefined)b.logo=IMG.logo;if(IMG.stamp!==undefined)b.stamp=IMG.stamp;
+ try{
+  if(MODE==="reg"){b.action="register";b.email=$("rEmail").value;b.password=$("rPass").value;const d=await api("auth",b);setTok(d.token);closeD("dReg");showCode(d.code);await refresh()}
+  else{await api("profile",b);closeD("dReg");await refresh();toast("Profile saved")}}
+ catch(e){$("rErr").textContent=e.message}}
+async function login(){
+ try{const d=await api("auth",{action:"login",email:$("lEmail").value,password:$("lPass").value});
+  setTok(d.token);$("lErr").textContent="";closeD("dLogin");await refresh();toast("Welcome, "+S.user.name)}
+ catch(e){$("lErr").textContent=e.message}}
+function logout(){setTok(null);render();toast("Logged out")}
+function showCode(c){$("codeV").textContent=c;openD("dCode")}
+function copyCode(){try{navigator.clipboard.writeText($("codeV").textContent);toast("Code copied")}catch(e){toast("Please write the code down")}}
+async function resetPw(){
+ try{const d=await api("auth",{action:"reset",email:$("pEmail").value,code:$("pCode").value,password:$("pPass").value});
+  setTok(d.token);$("pErr").textContent="";closeD("dReset");showCode(d.code);await refresh();toast("Password changed. Save your new recovery code")}
+ catch(e){$("pErr").textContent=e.message}}
+// ---------- Calculators
+function tab(n){[1,2,3].forEach(i=>{$("tp"+i).classList.toggle("hid",i!==n);$("tb"+i).className=i===n?"on":"ghost"})}
+function calc(){const v=Math.max(0,(+$("L").value)*(+$("W").value)*(+$("H").value)),[r,u]=FUM[$("F").value],d=v*r;
+ $("rV").textContent=v.toFixed(2);$("rD").textContent=u==="g"?d.toFixed(1)+" g":Math.ceil(d)+" tab";$("rE").textContent=$("E").value||0}
+function calc2(){const t=+$("tT").value,v=Math.max(0,+$("tV").value),r=t>=21?48:t>=16?56:t>=10?64:0;
+ $("t1").textContent=r?r+" g/m³":"Not allowed";$("t2").textContent=r?(r*v).toFixed(0)+" g":"-";$("t3").textContent=r?"24 hours":"Below 10°C"}
+function calc3(){const t=Math.max(0,+$("pT").value),r=Math.max(0,+$("pR").value),n=Math.ceil(t*r);
+ $("p1").textContent=n+" tab";$("p2").textContent=(n*3)+" g";$("p3").textContent=r+" /tonne"}
+// ---------- Payment
+async function buy(i){
+ if(!S.user){toast("Please log in or register first");return openD("dLogin")}
+ if(typeof Razorpay==="undefined")return toast("Payment system did not load. Check your internet");
+ try{const o=await api("order",{plan:i});
+  new Razorpay({key:o.key,amount:o.amount,currency:"INR",order_id:o.orderId,name:"Kumar Abhisek",
+   description:PLANS[i].n+": "+PLANS[i].c+" certificates",prefill:{name:S.user.name,email:S.user.email,contact:S.user.mob},theme:{color:"#0f4c36"},
+   handler:r=>claim(r)}).open()}
+ catch(e){toast(e.message)}}
+async function claim(r){
+ try{localStorage.setItem("kaPend",JSON.stringify(r))}catch(e){}
+ toast("Verifying payment...");
+ try{const d=await api("claim",r);try{localStorage.removeItem("kaPend")}catch(e){}
+  await refresh();toast(d.added?"Payment successful. "+d.added+" credits added":"This payment was already applied")}
+ catch(e){toast("Could not verify yet. Refresh the page and it will retry")}}
+// ---------- Certificate form
+const CF={country:"cCountry",fum:"cFum",fumDate:"cFd",degasDate:"cDg",port:"cPort",place:"cPlace",dose:"cDose",hours:"cHrs",temp:"cTemp",hum:"cHum",gastight:"cGas",container:"cCont",expName:"cEn",expAddr:"cEa",impName:"cIn",impAddr:"cIa",cargo:"cCargo",qty:"cQty",pack:"cPack",mark:"cMark",invNo:"cInv",invDate:"cInvD"};
+const REQ=["country","fumDate","port","place","dose","hours","expName","impName","cargo","qty"];
+const fi=(id,l,o={})=>`<div><label for="${id}">${l}</label><input id="${id}" type="${o.t||"text"}" ${o.v?`value="${o.v}"`:""} ${o.p?`placeholder="${o.p}"`:""} ${o.s?'step="any" min="0"':""}></div>`;
+function formHtml(u){return `<p style="margin:0 0 4px;color:var(--mu)">Each certificate uses 1 credit. Credits left: <b id="fCred">${S.credits}</b>. Your company details, registration and signatory are added automatically.</p>
+<div class="r2"><div><label>Company (default, cannot be changed)</label><input value="${esc(u.name)}" readonly disabled></div><div><label>Date of issue (automatic)</label><input value="${dmy(today())}" readonly disabled></div>
+${fi("cCountry","Importing country *",{p:"e.g. Brazil"})}<div><label for="cFum">Name of fumigant *</label><select id="cFum"><option value="alp">PHOSPHINE</option><option value="mb">METHYL BROMIDE</option></select></div>
+${fi("cFd","Date of fumigation *",{t:"date",v:today()})}${fi("cDg","Date of degassing",{t:"date"})}
+${fi("cPort","Port of loading *")}${fi("cPlace","Place of fumigation *")}
+${fi("cDose","Dosage (g/m³) *",{t:"number",s:1})}${fi("cHrs","Duration of fumigation (hours) *",{t:"number",s:1})}
+${fi("cTemp","Ambient temperature (°C)",{t:"number",s:1})}${fi("cHum","Average humidity (% RH)",{t:"number",s:1})}
+<div><label for="cGas">Fumigation under gastight sheets</label><select id="cGas"><option>Yes</option><option>No</option></select></div>${fi("cCont","Container number / seal number",{v:"Sheeted Stack"})}
+${fi("cEn","Exporter name *")}${fi("cEa","Exporter address")}${fi("cIn","Importer name *")}${fi("cIa","Importer address")}
+${fi("cCargo","Type and description of cargo *")}${fi("cQty","Quantity (MTs / packages / pieces) *")}
+${fi("cPack","Description of packaging material")}${fi("cMark","Shipping mark or brand",{v:"As per invoice"})}
+${fi("cInv","Invoice number")}${fi("cInvD","Invoice date",{t:"date"})}</div>
+<div class="acts"><button onclick="makeCert()">Generate certificate</button></div>`}
+async function makeCert(){
+ const b=Object.fromEntries(Object.entries(CF).map(([k,i])=>[k,$(i).value]));let bad=0;
+ REQ.forEach(k=>{const e=!String(b[k]).trim();$(CF[k]).classList.toggle("bad",e);bad+=e});
+ if(bad)return toast("Please fill all fields marked *");
+ if(S.credits<1){toast("No credits left. Please buy a subscription");return go("plans")}
+ try{await api("cert",b);S.page=0;S.q="";$("hq").value="";await refresh();showCert(0);toast("Certificate created")}
+ catch(e){toast(e.message);if(/credits/i.test(e.message))go("plans")}}
+// ---------- Certificate layout (same data for screen preview and PDF)
+const head=u=>[RECOG,"Regd. Office: "+u.addr,...(u.offices||"").split("\n").map(s=>s.trim()).filter(Boolean),"Mob.: +91-"+u.mob+", E-mail: "+u.email];
+function sections(c){return[
+ ["Details of Treatment",[["Name of Fumigant",c.fum],["Date of fumigation",dmy(c.fumDate)],["DATE OF DEGASSING",dmy(c.degasDate)],["PORT OF LOADING",c.port],["Place of fumigation",c.place],["Dosage of Fumigant",c.dose+" GRAM/M3"],["Duration of Fumigation",c.hours+" hours"],["Ambient temperature during fumigation (Deg. C)",c.temp?c.temp+" C":"-"],["Average ambient humidity during fumigation (RH)",c.hum?c.hum+"%":"-"],["Fumigation performed under gastight sheets",c.gastight]]],
+ ["Description of Goods",[["Container Number (or numerical link). / Seal Number",c.container],["Name & Address of Exporter",[c.expName,c.expAddr]],["Name & Address of Importer",[c.impName,c.impAddr]],["Type and description of cargo",c.cargo],["Quantity (MTs)/ No of packages/No of pieces",c.qty],["Description of packaging material",c.pack||"-"],["Shipping mark or brand",c.mark],["Additional DECLARATION:",c.invNo?"INVOICE NO. "+c.invNo+(c.invDate?" DATE: "+dmy(c.invDate):""):"-"]]]]}
+const SIGK="Name & Signature of Accredited Fumigation Operator with seal & date/ Accreditation Number";
+function certHtml(c){const u=S.user,L=head(u);
+ return `<div class="cv"><div class="lh">${u.logo?`<img src="${u.logo}" alt="">`:""}<div><h3>${esc(u.name)}</h3>${L.map((l,i)=>`<div class="${i?"":"b"}">${esc(l)}</div>`).join("")}</div></div>
+ <table class="ct"><tr><td colspan="2" class="ti">Fumigation Certificate<small>DPPQS Regd. No- ${esc(u.dppqs)} Dt. ${dmy(u.dppqsDate)}</small></td></tr>
+ <tr><td><b>Treatment Certificate No: ${esc(c.no)}</b></td><td class="ce">Date of Issue : ${dmy(c.issue)}</td></tr>
+ <tr><td colspan="2" class="pa">${esc(intro(c))}<span class="sm">${VALID}</span></td></tr>
+ ${sections(c).map(([h,rs])=>`<tr><td colspan="2" class="bd">${h}</td></tr>`+rs.map(([k,v])=>`<tr><td>${esc(k)}</td><td class="ce">${esc(txt(v)).replace(/\n/g,"<br>")}</td></tr>`).join("")).join("")}
+ <tr><td>${esc(SIGK)}</td><td class="sg">${u.stamp?`<img src="${u.stamp}" alt="">`:""}<div>${esc(u.opName)} - Accreditation No. ${esc(u.opAcc)}<br><b>FOR ${esc(u.name.toUpperCase())}</b></div></td></tr></table>
+ <p class="vf">Verify ID: ${esc(c.vid)} &nbsp; ${esc(location.origin)}/?v=${esc(c.vid)}</p></div>`}
+function showCert(i){const c=S.certs[i];
+ $("cert").innerHTML=certHtml(c)+`<div class="noprint" style="text-align:center;margin:16px"><button onclick="dlPdf(${i})">⬇ Download PDF</button> <button class="ghost" onclick="window.print()">🖨 Print</button> <button class="ghost" onclick="$('cert').style.display='none'">Close</button></div>`;
+ $("cert").style.cssText="display:block;position:fixed;inset:0;overflow:auto;background:var(--bg);padding:16px;z-index:60"}
+// ---------- PDF (browser me hi banta hai)
+const T=s=>String(s??"").replace(/[^\x20-\x7E\n]/g,"?");
+function certPdf(c){const d=new window.jspdf.jsPDF({unit:"mm",format:"a4"}),u=S.user,X=10,W=190;let y=10;
+ const hasL=!!u.logo,lx=X+(hasL?30:0);
+ if(hasL)try{d.addImage(u.logo,"JPEG",X,y,26,26)}catch(e){}
+ d.setFont("helvetica","bold");d.setFontSize(19);d.setTextColor(15,76,54);d.text(T(u.name),lx,y+8);
+ d.setFontSize(7.5);d.setTextColor(0);let ly=y+13;
+ head(u).forEach((l,i)=>{d.setFont("helvetica",i?"normal":"bold");d.splitTextToSize(T(l),W-(lx-X)).forEach(s=>{d.text(s,lx,ly);ly+=3.5})});
+ y=Math.max(ly,y+28)+1;d.setLineWidth(.6);d.setDrawColor(0);d.line(X,y,X+W,y);y+=5;d.setLineWidth(.2);
+ const box=(x,w,h,fill)=>{if(fill){d.setFillColor(240,240,240);d.rect(x,y,w,h,"FD")}else d.rect(x,y,w,h)};
+ const cen=(s,x,w,fs,b,yy)=>{d.setFont("helvetica",b?"bold":"normal");d.setFontSize(fs);d.text(s,x+w/2,yy,{align:"center"})};
+ box(X,W,15);cen("Fumigation Certificate",X,W,17,0,y+8);cen(T("DPPQS Regd. No- "+u.dppqs+" Dt. "+dmy(u.dppqsDate)),X,W,8,1,y+12.5);y+=15;
+ box(X,95,7);box(X+95,95,7);d.setFont("helvetica","bold");d.setFontSize(9);d.text(T("Treatment Certificate No: "+c.no),X+2,y+4.8);cen("Date of Issue : "+dmy(c.issue),X+95,95,9,0,y+4.8);y+=7;
+ d.setFontSize(8);d.setFont("helvetica","normal");const pl=d.splitTextToSize(T(intro(c)),W-4);box(X,W,pl.length*3.5+9);d.text(pl,X+2,y+4);cen(VALID,X,W,7,0,y+pl.length*3.5+6);y+=pl.length*3.5+9;
+ const pg=h=>{if(y+h>285){d.addPage();y=12}};
+ const row=(k,v,kw)=>{d.setFontSize(8.5);const ks=d.splitTextToSize(T(k),kw-4),vs=d.splitTextToSize(T(txt(v)),W-kw-4),h=Math.max(6.5,Math.max(ks.length,vs.length)*3.7+2.6);pg(h);
+  box(X,kw,h);box(X+kw,W-kw,h);d.setFont("helvetica","normal");d.text(ks,X+2,y+4.4);d.text(vs,X+kw+(W-kw)/2,y+4.4,{align:"center"});y+=h};
+ sections(c).forEach(([h,rs],si)=>{pg(14);box(X,W,6,1);cen(h,X,W,10,1,y+4.3);y+=6;rs.forEach(([k,v])=>row(k,v,si?80:92))});
+ pg(30);box(X,80,28);box(X+80,W-80,28);d.setFont("helvetica","normal");d.setFontSize(8.5);d.text(d.splitTextToSize(SIGK,76),X+2,y+4.4);
+ if(u.stamp)try{d.addImage(u.stamp,"PNG",X+88,y+1,25,25)}catch(e){}
+ d.setFontSize(8);d.text(T(u.opName+" - Accreditation No. "+u.opAcc),X+82,y+21);d.setFont("helvetica","bold");d.text(T("FOR "+u.name.toUpperCase()),X+82,y+25.5);y+=33;
+ d.setFont("courier","normal");d.setFontSize(8);d.text(T("Verify ID: "+c.vid+"   "+location.origin+"/?v="+c.vid),X,y);
+ return d}
+const fname=c=>c.no.replace(/[^A-Za-z0-9-]+/g,"-")+".pdf";
+function dlPdf(i){if(!window.jspdf)return toast("PDF tool did not load");const c=S.certs[i];certPdf(c).save(fname(c))}
+async function exportCSV(){
+ try{const d=await api("history",{all:1}),q=v=>{v=String(v??"");if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'};
+  const K=[["no","certificate_no"],["issue","issue_date"],["country","importing_country"],["fum","fumigant"],["fumDate","fumigation_date"],["degasDate","degassing_date"],["port","port_of_loading"],["place","place_of_fumigation"],["dose","dose_g_m3"],["hours","duration_hours"],["container","container_no"],["expName","exporter"],["impName","importer"],["cargo","cargo"],["qty","quantity"],["invNo","invoice_no"],["vid","verify_id"]];
+  const t=[K.map(x=>x[1]).join(",")].concat(d.items.map(c=>K.map(x=>q(c[x[0]])).join(","))).join("\n");
+  save(new Blob(["\ufeff"+t],{type:"text/csv"}),"certificates.csv")}catch(e){toast(e.message)}}
+// ---------- Bulk
+const BK=[["country","country"],["fum","fumigant"],["fumDate","fumigation_date"],["degasDate","degassing_date"],["port","port_of_loading"],["place","place_of_fumigation"],["dose","dose"],["hours","duration_hours"],["temp","temperature"],["hum","humidity"],["gastight","gastight"],["container","container_no"],["expName","exporter_name"],["expAddr","exporter_address"],["impName","importer_name"],["impAddr","importer_address"],["cargo","cargo"],["qty","quantity"],["pack","packaging"],["mark","shipping_mark"],["invNo","invoice_no"],["invDate","invoice_date"]];
+function parseCSV(t){const rows=[];let row=[],c="",q=false;
+ for(let i=0;i<t.length;i++){const ch=t[i];
+  if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}
+  else if(ch=='"')q=true;else if(ch==","){row.push(c);c=""}
+  else if(ch=="\n"||ch=="\r"){if(ch=="\r"&&t[i+1]=="\n")i++;row.push(c);rows.push(row);row=[];c=""}else c+=ch}
+ if(c!==""||row.length){row.push(c);rows.push(row)}
+ return rows.filter(r=>r.some(x=>x.trim()))}
+function fixDate(s){s=(s||"").trim();const m=s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})$/);return m?`${m[3]}-${m[2].padStart(2,"0")}-${m[1].padStart(2,"0")}`:s}
+function tmpl(){const h=BK.map(x=>x[1]).join(","),a='Brazil,phosphine,20/10/2026,25/10/2026,Mundra,"Panipat, Haryana",2,120,26,64,Yes,Sheeted Stack,TRIMAX INTERNATIONAL,"Sonipat, Haryana",SIDHU TRADING COMPANY LTDA,"Sao Paulo, Brasil",BASMATI RICE,20.600 MTS,1030 PACKAGES,As per invoice,INV-031,08/10/2026',b='Brazil,methyl bromide,21/10/2026,22/10/2026,Mundra,"Panipat, Haryana",48,24,28,60,Yes,MSKU1234567,TRIMAX INTERNATIONAL,"Sonipat, Haryana",SIDHU TRADING COMPANY LTDA,"Sao Paulo, Brasil",WOODEN PACKAGING,40 PACKAGES,,As per invoice,INV-032,09/10/2026';
+ save(new Blob([h+"\n"+a+"\n"+b+"\n"],{type:"text/csv"}),"bulk-template.csv")}
+function loadCSV(f){
+ if(!f)return;const rd=new FileReader(),info=$("bInfo"),fail=m=>{BULK=[];info.textContent=m;$("bGo").disabled=true};
+ rd.onload=()=>{const t=parseCSV(String(rd.result).replace(/^\ufeff/,""));
+  if(t.length<2)return fail("No data found in the file. See the template.");
+  const h=t[0].map(x=>x.trim().toLowerCase());
+  BULK=t.slice(1).map(r=>{const o={};BK.forEach(([k,col])=>{const i=h.indexOf(col);o[k]=i<0?"":(r[i]||"").trim()});
+   o.fum=/methyl|mb|brom/i.test(o.fum)?"mb":"alp";o.fumDate=fixDate(o.fumDate);o.degasDate=fixDate(o.degasDate);o.invDate=fixDate(o.invDate);return o});
+  if(BULK.length>5000)return fail("Maximum 5000 rows per upload.");
+  const bad=BULK.findIndex(o=>REQ.some(k=>!o[k]||(k==="dose"||k==="hours")&&!(+o[k]>0)));
+  if(bad>=0){const o=BULK[bad],k=REQ.find(k=>!o[k]||(k==="dose"||k==="hours")&&!(+o[k]>0));return fail("Row "+(bad+2)+": missing or invalid "+BK.find(x=>x[0]===k)[1])}
+  info.textContent=BULK.length+" certificates found. They will use "+BULK.length+" credits (you have "+S.credits+").";$("bGo").disabled=!S.user};
+ rd.readAsText(f)}
+async function runBulk(){
+ if(busy)return;if(!S.user)return toast("Please log in first");
+ if(!window.jspdf||!window.JSZip)return toast("PDF/ZIP tools did not load. Check your internet");
+ if(BULK.length>S.credits){toast("Not enough credits. Please buy a subscription");return go("plans")}
+ busy=true;$("bGo").disabled=true;const bar=$("bBar"),info=$("bInfo"),out=[],t0=performance.now();
+ try{for(let i=0;i<BULK.length;i+=200){info.textContent="Saving: "+Math.min(i+200,BULK.length)+" / "+BULK.length;
+   const d=await api("bulk",{rows:BULK.slice(i,i+200)});out.push(...d.certs);bar.style.width=(out.length/BULK.length*50)+"%"}
+ }catch(e){busy=false;$("bGo").disabled=false;await refresh();
+  info.textContent=(out.length?out.length+" certificates were saved (see History). ":"")+"Stopped: "+e.message;return}
+ try{const zip=new JSZip();
+  for(let j=0;j<out.length;j++){zip.file(fname(out[j]),certPdf(out[j]).output("arraybuffer"));
+   if(j%20===0){info.textContent="Creating PDFs: "+(j+1)+" / "+out.length;bar.style.width=(50+j/out.length*50)+"%";await tick()}}
+  info.textContent="Creating ZIP...";await tick();
+  save(await zip.generateAsync({type:"blob",compression:"STORE"}),"certificates-"+out.length+".zip");
+  bar.style.width="100%";info.textContent="Done: "+out.length+" certificates in "+((performance.now()-t0)/1000).toFixed(1)+" seconds."}
+ catch(e){info.textContent="ZIP problem: "+e.message+". Your certificates are saved in History."}
+ busy=false;S.page=0;await refresh()}
+function legal(t){$("lgT").innerHTML=t;$("lgB").textContent="The full text of "+t.replace("&amp;","&")+" will be added here before launch. It is required by Razorpay and the Play Store.";openD("dLegal")}
+async function verifyCert(){
+ const o=$("vOut"),id=$("vId").value.trim();
+ if(!id){o.innerHTML='<p class="err">Enter a Verify ID</p>';return}
+ o.innerHTML='<p class="note">Checking...</p>';
+ try{const r=await fetch("/api/verify?id="+encodeURIComponent(id)),d=await r.json();
+  if(!r.ok)throw new Error(d.error||"Could not verify");
+  o.innerHTML=`<div class="res" style="display:block;text-align:left"><b style="font-size:17px">✔ Genuine certificate</b>
+  <table style="min-width:0;margin-top:8px"><tr><td>Certificate No.</td><td>${esc(d.no)}</td></tr><tr><td>Company</td><td>${esc(d.company)}</td></tr><tr><td>Date of issue</td><td>${dmy(d.issue)}</td></tr><tr><td>Fumigant</td><td>${esc(d.fum)}</td></tr><tr><td>Date of fumigation</td><td>${dmy(d.fumDate)}</td></tr><tr><td>Port of loading</td><td>${esc(d.port)}</td></tr><tr><td>Importing country</td><td>${esc(d.country)}</td></tr><tr><td>Importer</td><td>${esc(d.impName)}</td></tr><tr><td>Cargo</td><td>${esc(d.cargo)}</td></tr><tr><td>Container / seal</td><td>${esc(d.container)}</td></tr></table></div>`}
+ catch(e){o.innerHTML='<p class="err">✖ '+esc(e.message)+'</p>'}}
+function render(){const u=S.user;
+ $("bLogin").style.display=$("bReg").style.display=u?"none":"";$("bOut").style.display=u?"":"none";
+ $("sCred").textContent=S.credits;$("sCert").textContent=S.total;$("sSpent").textContent="₹"+S.spent;$("cnt").textContent=S.total;
+ if(!busy&&BULK.length)$("bGo").disabled=!u;
+ $("acctBody").innerHTML=u?`<p style="margin:0"><b style="font-size:19px">${esc(u.name)}</b> <span class="badge">Logged in</span></p><p style="color:var(--mu);margin:8px 0">${esc(u.addr)}<br>DPPQS Regd. No.: ${esc(u.dppqs)}<br>Operator: ${esc(u.opName)} (${esc(u.opAcc)})<br>Certificate prefix: ${esc(u.prefix)}<br>${esc(u.email)} · ${esc(u.mob)}</p><button class="ghost" onclick="openProfile()">Edit company profile</button>`:`<div class="lock">You are not logged in.<div class="acts" style="justify-content:center"><button onclick="openD('dLogin')">Login</button><button class="am" onclick="openReg()">Register</button></div></div>`;
+ $("planList").innerHTML=PLANS.map((p,i)=>`<div class="plan ${p.hot?"hot":""}">${p.hot?'<span class="tag">Most popular</span>':""}<b>${p.n}</b><div class="p">₹${p.p}</div><div class="u">${p.c} certificates</div><ul>${p.f.map(x=>"<li>"+x+"</li>").join("")}</ul><button class="${p.hot?"am":""}" onclick="buy(${i})">Subscribe</button></div>`).join("");
+ const who=u?u.email+"|"+u.name:null;
+ if(who!==formFor){formFor=who;$("makeBody").innerHTML=u?formHtml(u):`<div class="lock">Please log in to create certificates.</div>`}
+ else if($("fCred"))$("fCred").textContent=S.credits;
+ const pages=Math.max(1,Math.ceil(S.hTotal/50));
+ $("hist").innerHTML=u&&S.certs.length?S.certs.map((c,i)=>`<tr><td>${esc(c.no)}</td><td>${dmy(c.issue)}</td><td>${esc(c.impName)}</td><td>${esc(c.cargo)}</td><td style="white-space:nowrap"><button class="ghost" onclick="showCert(${i})">View</button> <button class="ghost" onclick="dlPdf(${i})">PDF</button></td></tr>`).join(""):`<tr><td colspan="5" class="empty">${u?(S.q?"No certificates match this search.":"No certificates yet. Create your first one above."):"Log in to see your certificates."}</td></tr>`;
+ $("hInfo").textContent=u?"Page "+(S.page+1)+" / "+pages+" ("+S.hTotal+" certificates)":"";
+ $("hPrev").disabled=S.page<=0;$("hNext").disabled=S.page+1>=pages}
+["L","W","H","F","E"].forEach(i=>$(i).addEventListener("input",calc));
+["tT","tV"].forEach(i=>$(i).addEventListener("input",calc2));["pT","pR"].forEach(i=>$(i).addEventListener("input",calc3));
+(async()=>{calc();calc2();calc3();const v=new URLSearchParams(location.search).get("v");if(v){$("vId").value=v;verifyCert();setTimeout(()=>go("verify"),300)}await refresh();
+ try{const p=localStorage.getItem("kaPend");if(p&&S.user)claim(JSON.parse(p))}catch(e){}})();
+</script>
+</body>
+</html>
